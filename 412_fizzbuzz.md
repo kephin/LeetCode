@@ -10,27 +10,27 @@ But for multiples of three it should output “Fizz” instead of the number and
 n = 15,
 Return:
 [
-    "1",
-    "2",
-    "Fizz",
-    "4",
-    "Buzz",
-    "Fizz",
-    "7",
-    "8",
-    "Fizz",
-    "Buzz",
-    "11",
-    "Fizz",
-    "13",
-    "14",
-    "FizzBuzz"
+  "1",
+  "2",
+  "Fizz",
+  "4",
+  "Buzz",
+  "Fizz",
+  "7",
+  "8",
+  "Fizz",
+  "Buzz",
+  "11",
+  "Fizz",
+  "13",
+  "14",
+  "FizzBuzz"
 ]
 
 **Solution:**
 
 ```javascript
-function fizzBuzz(n) {
+const fizzBuzz = (n) => {
   const arr = [];
   for (let index = 1; index <= n; index++) {
     if (index % 15 === 0) {
