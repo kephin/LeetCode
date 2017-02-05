@@ -52,9 +52,11 @@ const reverseString_5 = (string) => {
 
 // solution#6 : half-index head-end-swap
 const reverseString_6 = (string) => {
-  let newString = string.split('');
-  for (let index = 0; index < Math.floor(newString.length / 2); index++) {
-    [newString[index], newString[newString.length - 1 - index]] = [newString[newString.length - 1 - index], newString[index]];
+  const arr = string.split('');
+  for (let index = 0; index < Math.floor(arr.length / 2); index++) {
+    const head = index;
+    const end = arr.length - 1 - index;
+    [arr[head], arr[end]] = [arr[end], arr[head]];
   }
-  return newString.join('');
-}
+  return arr.join('');
+};
