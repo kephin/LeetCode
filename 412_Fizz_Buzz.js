@@ -28,9 +28,9 @@ it('412 Fizz Buzz', () => {
     'FizzBuzz',
   ];
   //act
-  const target = fizzBuzz(n);
+  const actual = fizzBuzz(n);
   //assert
-  expect(target).toEqual(expected);
+  expect(actual).toEqual(expected);
 });
 
 const fizzBuzz = (n) => {
