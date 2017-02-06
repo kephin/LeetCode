@@ -45,6 +45,7 @@ describe('461 Hamming Distance', () => {
   });
 });
 
+// solution #1
 const hammingDistance = (x, y) => {
   if (x === y) return 0;
 
@@ -71,5 +72,14 @@ const hammingDistance = (x, y) => {
 
   return newArray
     .filter(value => value === 1)
+    .reduce((prev, next) => prev + next, 0);
+};
+
+// solution #2 use XOR(exclusive or) bitwise operator
+const hammingDistance = (x, y) => {
+  return (x ^ y)
+    .toString(2)
+    .split('')
+    .map(value => parseInt(value))
     .reduce((prev, next) => prev + next, 0);
 };
