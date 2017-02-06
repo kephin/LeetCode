@@ -6,14 +6,16 @@ Write a function that takes a string as input and returns the string reversed.
 
 const expect = require('expect');
 
-it('344 Reverse String', () => {
-  //arrange
-  const string = 'hello';
-  const expected = 'olleh';
-  //act
-  const actual = reverseString_6(string);
-  //assert
-  expect(actual).toBe(expected);
+describe('344 Reverse String', () => {
+  it('returns reverse string', () => {
+    //arrange
+    const string = 'hello';
+    const expected = 'olleh';
+    //act
+    const actual = reverseString_6(string);
+    //assert
+    expect(actual).toBe(expected);
+  });
 });
 
 // solution#1: plain string

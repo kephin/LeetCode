@@ -7,30 +7,32 @@ But for multiples of three it should output “Fizz” instead of the number and
 
 const expect = require('expect');
 
-it('412 Fizz Buzz', () => {
-  //arrange
-  const n = 15;
-  const expected = [
-    '1',
-    '2',
-    'Fizz',
-    '4',
-    'Buzz',
-    'Fizz',
-    '7',
-    '8',
-    'Fizz',
-    'Buzz',
-    '11',
-    'Fizz',
-    '13',
-    '14',
-    'FizzBuzz',
-  ];
-  //act
-  const actual = fizzBuzz(n);
-  //assert
-  expect(actual).toEqual(expected);
+describe('412 Fizz Buzz', () => {
+  it('returns Fizz Buzz', () => {
+    //arrange
+    const n = 15;
+    const expected = [
+      '1',
+      '2',
+      'Fizz',
+      '4',
+      'Buzz',
+      'Fizz',
+      '7',
+      '8',
+      'Fizz',
+      'Buzz',
+      '11',
+      'Fizz',
+      '13',
+      '14',
+      'FizzBuzz',
+    ];
+    //act
+    const actual = fizzBuzz(n);
+    //assert
+    expect(actual).toEqual(expected);
+  });
 });
 
 const fizzBuzz = (n) => {
