@@ -17,7 +17,7 @@ describe('461 Hamming Distance', () => {
     const y = 4;
     const expected = 2;
     //act
-    const actual = hammingDistance(x, y);
+    const actual = hammingDistance_2(x, y);
     //assert
     expect(actual).toBe(expected);
   });
@@ -28,7 +28,7 @@ describe('461 Hamming Distance', () => {
     const y = 1727613287;
     const expected = 16;
     //act
-    const actual = hammingDistance(x, y);
+    const actual = hammingDistance_2(x, y);
     //assert
     expect(actual).toBe(expected);
   });
@@ -39,14 +39,14 @@ describe('461 Hamming Distance', () => {
     const y = 16;
     const expected = 0;
     //act
-    const actual = hammingDistance(x, y);
+    const actual = hammingDistance_2(x, y);
     //assert
     expect(actual).toBe(expected);
   });
 });
 
 // solution #1
-const hammingDistance = (x, y) => {
+const hammingDistance_1 = (x, y) => {
   if (x === y) return 0;
 
   // make sure x is larger
@@ -76,7 +76,7 @@ const hammingDistance = (x, y) => {
 };
 
 // solution #2 use XOR(exclusive or) bitwise operator
-const hammingDistance = (x, y) => {
+const hammingDistance_2 = (x, y) => {
   return (x ^ y)
     .toString(2)
     .split('')
