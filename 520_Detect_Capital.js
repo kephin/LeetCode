@@ -45,8 +45,5 @@ describe('520 Detect Capital', () => {
 });
 
 const detectCapitalUse = (word) => {
-  if (word.toUpperCase() === word) return true;
-  if (word.toLowerCase() === word) return true;
-  if (word.slice(1).toLowerCase() === word.slice(1)) return true;
-  return false;
+  return word.toUpperCase() === word || word.slice(1).toLowerCase() === word.slice(1);
 };
