@@ -32,9 +32,21 @@ describe('520 Detect Capital', () => {
     //assert
     expect(actual).toBe(expected);
   });
+
+  it('only the first letter is capital returns true', () => {
+    //arrange
+    const input = 'Google';
+    const expected = true;
+    //act
+    const actual = detectCapitalUse(input);
+    //assert
+    expect(actual).toBe(expected);
+  });
 });
 
 const detectCapitalUse = (word) => {
   if (word.toUpperCase() === word) return true;
   if (word.toLowerCase() === word) return true;
+  if (word.slice(1).toLowerCase() === word.slice(1)) return true;
+  return false;
 };
