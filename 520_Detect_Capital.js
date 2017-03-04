@@ -22,8 +22,19 @@ describe('520 Detect Capital', () => {
     //assert
     expect(actual).toBe(expected);
   });
+
+  it('all lower case returns true', () => {
+    //arrange
+    const input = 'leetcode';
+    const expected = true;
+    //act
+    const actual = detectCapitalUse(input);
+    //assert
+    expect(actual).toBe(expected);
+  });
 });
 
 const detectCapitalUse = (word) => {
   if (word.toUpperCase() === word) return true;
+  if (word.toLowerCase() === word) return true;
 };
