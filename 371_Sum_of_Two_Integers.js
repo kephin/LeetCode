@@ -50,6 +50,17 @@ describe('371 Sum of Two Integers', () => {
     //assert
     expect(actual).toBe(expected);
   });
+
+  it('returns sum of large integers(but not overflow)', () => {
+    //arrange
+    const a = 2147483646;
+    const b = 1;
+    const expected = a + b;
+    //act
+    const actual = getSum(a, b);
+    //assert
+    expect(actual).toBe(expected);
+  });
 });
 
 const getSum = (a, b) => {
