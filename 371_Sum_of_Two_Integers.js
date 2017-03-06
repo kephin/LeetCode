@@ -63,9 +63,4 @@ describe('371 Sum of Two Integers', () => {
   });
 });
 
-const getSum = (a, b) => {
-  const remainder = a ^ b;
-  const carry = a & b;
-  if (carry !== 0) return getSum(remainder, carry << 1);
-  return remainder;
-};
+const getSum = (a, b) => b === 0 ? a : getSum(a ^ b, (a & b) << 1);
