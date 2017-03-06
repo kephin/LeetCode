@@ -17,6 +17,39 @@ describe('371 Sum of Two Integers', () => {
     //assert
     expect(actual).toBe(expected);
   });
+
+  it('returns sum of one negative, one positive numbers', () => {
+    //arrange
+    const a = -1415;
+    const b = 123;
+    const expected = a + b;
+    //act
+    const actual = getSum(a, b);
+    //assert
+    expect(actual).toBe(expected);
+  });
+
+  it('returns sum of two negative integers', () => {
+    //arrange
+    const a = -1415;
+    const b = -1123;
+    const expected = a + b;
+    //act
+    const actual = getSum(a, b);
+    //assert
+    expect(actual).toBe(expected);
+  });
+
+  it('returns 0', () => {
+    //arrange
+    const a = -1415;
+    const b = 1415;
+    const expected = 0;
+    //act
+    const actual = getSum(a, b);
+    //assert
+    expect(actual).toBe(expected);
+  });
 });
 
 const getSum = (a, b) => {
