@@ -14,7 +14,7 @@ describe('500 Keyboard Row', () => {
     //act
     const actual = findWords(input);
     //assert
-    expect(expected).toBe(actual);
+    expect(expected).toEqual(actual);
   });
 });
 
