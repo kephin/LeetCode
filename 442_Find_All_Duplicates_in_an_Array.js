@@ -21,14 +21,12 @@ describe('442 Find All Duplicates in an Array', () => {
 });
 
 const findDuplicates = (nums) => {
-  const duplicates = [];
   const hash = {};
-  nums.forEach(num => {
+  return nums.filter(num => {
     if (!hash[num]) {
       hash[num] = true;
-    } else {
-      duplicates.push(num);
+      return false;
     }
+    return true;
   });
-  return duplicates;
 };
