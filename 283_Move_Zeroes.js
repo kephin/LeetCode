@@ -12,7 +12,7 @@ Minimize the total number of operations.
 const expect = require('expect');
 
 describe('283 Move Zeroes', () => {
-  it('returns counting bits', () => {
+  it('moves zeores from the original array', () => {
     //arrange
     let nums = [1, 0, 0, 3, 12];
     const expected = [1, 3, 12, 0, 0];
@@ -24,13 +24,13 @@ describe('283 Move Zeroes', () => {
 });
 
 const moveZeroes = (nums) => {
-  const zeroes = [];
-  for (let index = 0; index < nums.length; index += 1) {
+  let numsLength = nums.length;
+  for (let index = 0; index < numsLength; index += 1) {
     if (nums[index] === 0) {
       nums.splice(index, 1);
+      nums.push(0);
       index -= 1;
-      zeroes.push(0);
+      numsLength -= 1;
     }
   }
-  nums.push(...zeroes);
 };
