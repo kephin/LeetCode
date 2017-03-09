@@ -21,7 +21,7 @@ describe('389 Find the Difference', () => {
   });
 });
 
-const findTheDifference = (input1, input2) => {
+const findTheDifference_1 = (input1, input2) => {
   return [...input2].filter(input2Val => {
     if (input1.includes(input2Val)) {
       const input1Array = [...input1];
@@ -31,4 +31,16 @@ const findTheDifference = (input1, input2) => {
     }
     return true;
   })[0];
+};
+
+const findTheDifference = (input1, input2) => {
+  if (input1.length === 0) return input2;
+  const letters = 'abcdefghijklmnopqrstuvwxyz';
+  const input1Sum = input1
+    .split('')
+    .map(e => e.charCodeAt(0)).reduce((a, b) => a + b) + 'a'.charCodeAt(0);
+  const input2Sum = input2
+    .split('')
+    .map(e => e.charCodeAt(0)).reduce((a, b) => a + b);
+  return letters[input2Sum - input1Sum];
 };
