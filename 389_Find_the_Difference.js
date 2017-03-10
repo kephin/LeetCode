@@ -35,12 +35,11 @@ const findTheDifference_1 = (input1, input2) => {
 
 const findTheDifference = (input1, input2) => {
   if (input1.length === 0) return input2;
-  const letters = 'abcdefghijklmnopqrstuvwxyz';
   const input1Sum = input1
     .split('')
-    .map(e => e.charCodeAt(0)).reduce((a, b) => a + b) + 'a'.charCodeAt(0);
+    .map(e => e.charCodeAt(0)).reduce((a, b) => a + b);
   const input2Sum = input2
     .split('')
     .map(e => e.charCodeAt(0)).reduce((a, b) => a + b);
-  return letters[input2Sum - input1Sum];
+  return String.fromCharCode(input2Sum - input1Sum);
 };
