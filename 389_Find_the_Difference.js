@@ -33,7 +33,7 @@ const findTheDifference_1 = (input1, input2) => {
   })[0];
 };
 
-const findTheDifference = (input1, input2) => {
+const findTheDifference_2 = (input1, input2) => {
   if (input1.length === 0) return input2;
   const input1Sum = input1
     .split('')
@@ -42,4 +42,12 @@ const findTheDifference = (input1, input2) => {
     .split('')
     .map(e => e.charCodeAt(0)).reduce((a, b) => a + b);
   return String.fromCharCode(input2Sum - input1Sum);
+};
+
+function findTheDifference(input1, input2) {
+  let charCode = input2.charCodeAt(input2.length - 1);
+  [...input1].forEach((index, value) => {
+    charCode = charCode ^ input1.charCodeAt(index) ^ input2.charCodeAt(index);
+  });
+  return String.fromCharCode(charCode);
 };
