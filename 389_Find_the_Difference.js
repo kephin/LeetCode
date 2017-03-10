@@ -44,9 +44,10 @@ const findTheDifference_2 = (input1, input2) => {
   return String.fromCharCode(input2Sum - input1Sum);
 };
 
-function findTheDifference(input1, input2) {
+// Use the commutative property of xor and the fact that A^A === 0
+const findTheDifference = (input1, input2) => {
   let charCode = input2.charCodeAt(input2.length - 1);
-  [...input1].forEach((index, value) => {
+  [...input1].forEach((value, index) => {
     charCode = charCode ^ input1.charCodeAt(index) ^ input2.charCodeAt(index);
   });
   return String.fromCharCode(charCode);
