@@ -21,7 +21,7 @@ describe('136 Single Number', () => {
   });
 });
 
-const singleNumber = (nums) => {
+const singleNumber_1 = (nums) => {
   const list = {};
   for (const num of nums) {
     if (!list[num]) list[num] = true;
@@ -30,4 +30,8 @@ const singleNumber = (nums) => {
     }
   }
   return parseInt(Object.keys(list)[0]);
+};
+
+const singleNumber = (nums) => {
+  return nums.reduce((acc, cur) => acc ^ cur, 0);
 };
