@@ -19,16 +19,6 @@ describe('136 Single Number', () => {
     //assert
     expect(actual).toBe(expected);
   });
-
-  it(`returns 'Nothing found'`, () => {
-    //arrange
-    const input = [];
-    const expected = 'Nothing found';
-    //act
-    const actual = singleNumber(input);
-    //assert
-    expect(actual).toBe(expected);
-  });
 });
 
 const singleNumber = (nums) => {
@@ -39,5 +29,5 @@ const singleNumber = (nums) => {
       delete list[num];
     }
   }
-  return parseInt(Object.keys(list)[0]) || 'Nothing found';
+  return parseInt(Object.keys(list)[0]);
 };
