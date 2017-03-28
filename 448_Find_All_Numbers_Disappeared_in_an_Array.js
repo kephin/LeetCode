@@ -21,9 +21,14 @@ describe('448 Find All Numbers Disappeared in an Array', () => {
 });
 
 const findDisappearedNumbers = (nums) => {
-  const arr = [];
-  for (let index = 1; index <= nums.length; index += 1) {
-    if (!nums.includes(index)) arr.push(index);
+  const obj = {};
+  const disappearNumbers = [];
+
+  for (const num of nums) {
+    obj[num] = num;
   }
-  return arr;
+  for (const [index, num] of nums.entries()) {
+    if (!obj[index + 1]) disappearNumbers.push(index + 1);
+  }
+  return disappearNumbers;
 };
