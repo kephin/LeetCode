@@ -23,7 +23,7 @@ describe('264 Ugly Number II', () => {
   });
 });
 
-const nthUglyNumber = (n) => {
+const nthUglyNumber_1 = (n) => {
   const arr = [1];
   const backupList = [];
 
@@ -56,4 +56,21 @@ const nthUglyNumber = (n) => {
     arr.push(backupList.shift());
   }
   return arr.pop();
+};
+
+const nthUglyNumber = (n) => {
+  const ugly = [];
+  ugly[0] = 1;
+
+  let [index2, index3, index5] = [0, 0, 0];
+  let [factor2, factor3, factor5] = [2, 3, 5];
+
+  for (let index = 1; index < n; index++) {
+    const min = Math.min(factor2, factor3, factor5);
+    ugly[index] = min;
+    if (factor2 === min) factor2 = 2 * ugly[++index2];
+    if (factor3 === min) factor3 = 3 * ugly[++index3];
+    if (factor5 === min) factor5 = 5 * ugly[++index5];
+  }
+  return ugly[n - 1];
 };
