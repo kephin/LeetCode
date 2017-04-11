@@ -12,7 +12,7 @@ All the scores of athletes are guaranteed to be unique.
 
 const expect = require('expect');
 
-describe.only('506 Relative Ranks', () => {
+describe('506 Relative Ranks', () => {
   it('returns relative ranks', () => {
     //arrange
     const input = [53, 14, 35, 82, 21, 11];
