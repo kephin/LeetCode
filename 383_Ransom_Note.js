@@ -33,6 +33,27 @@ describe.only('383 Ransom Note', () => {
     //assert
     expect(actual).toBe(expected);
   });
+  it('returns true', () => {
+    //arragne
+    const ransomNote = 'fffbfg';
+    const magazine = 'effjfggbffjdgbjjhhdegh';
+    const input = [ransomNote, magazine];
+    const expected = true;
+    //act
+    const actual = canConstruct(...input);
+    //assert
+    expect(actual).toBe(expected);
+  });
 });
 
-const canConstruct = (ransomNote, magazine) => magazine.includes(ransomNote);
+const canConstruct = (ransomNote, magazine) => {
+  const magazineArray = [...magazine];
+  let index;
+  for (const char of[...ransomNote]) {
+    index = magazineArray.indexOf(char);
+    if (index === -1) break;
+    magazineArray.splice(index, 1);
+  }
+  if (index === -1) return false;
+  return true;
+};
