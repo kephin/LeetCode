@@ -10,7 +10,7 @@ You may assume that both strings contain only lowercase letters.
 
 const expect = require('expect');
 
-describe.only('383 Ransom Note', () => {
+describe('383 Ransom Note', () => {
   it('returns false', () => {
     //arragne
     const ransomNote = 'money';
@@ -47,13 +47,13 @@ describe.only('383 Ransom Note', () => {
 });
 
 const canConstruct = (ransomNote, magazine) => {
+  if (ransomNote.length > magazine.length) return false;
+
   const magazineArray = [...magazine];
-  let index;
-  for (const char of[...ransomNote]) {
-    index = magazineArray.indexOf(char);
-    if (index === -1) break;
+  for (const char of [...ransomNote]) {
+    const index = magazineArray.indexOf(char);
+    if (index === -1) return false;
     magazineArray.splice(index, 1);
   }
-  if (index === -1) return false;
   return true;
 };
