@@ -28,7 +28,12 @@ describe('171 Excel Sheet Column Number', () => {
   });
 });
 
-const titleToNumber = string => [...string]
+const titleToNumber_1 = string => [...string]
   .reverse()
   .map((value, index) => (value.charCodeAt(0) - 64) * (26 ** index))
   .reduce((acc, cur) => acc + cur, 0);
+
+// more concise but not straight forward
+const titleToNumber_2 = string => [...string]
+  .reverse()
+  .reduce((acc, cur, index) => acc + (cur.charCodeAt(0) - 64) * (26 ** index), 0);
