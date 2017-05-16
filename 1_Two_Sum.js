@@ -21,7 +21,7 @@ describe('1 Two Sum', () => {
 });
 
 // O(n^2)
-const twoSum = (nums, target) => {
+const twoSum_slow = (nums, target) => {
   for (let indexFirst = 0; indexFirst < nums.length; indexFirst++) {
     for (let indexSecond = indexFirst + 1; indexSecond < nums.length; indexSecond++) {
       if (nums[indexFirst] + nums[indexSecond] === target) return [indexFirst, indexSecond];
@@ -29,3 +29,13 @@ const twoSum = (nums, target) => {
   }
 };
 
+// O(n)
+const twoSum = (nums, target) => {
+  const hash = {};
+  for (const [index, value] of nums.entries()) {
+    if (typeof hash[target - value] === 'undefined') hash[value] = index;
+    else {
+      return [hash[target - value], index];
+    }
+  }
+};
