@@ -38,7 +38,7 @@ describe('387 First Unique Character in a String', () => {
   });
 });
 
-const firstUniqChar = (string) => {
+const firstUniqChar_1 = (string) => {
   const hash = {};
   [...string].forEach((char, index) => {
     if (!hash[char] && hash[char] !== 0) hash[char] = index;
@@ -54,4 +54,18 @@ const firstUniqChar = (string) => {
 
   if (nonRepeatingIndex === undefined) return -1;
   return nonRepeatingIndex;
+};
+
+const firstUniqChar_2 = (string) => {
+  const recordArray = [];
+  [...string].forEach(value => {
+    const codeIndex = value.charCodeAt(0) - 97;
+    if (!recordArray[codeIndex]) recordArray[codeIndex] = 1;
+    else { recordArray[codeIndex] += 1; }
+  });
+  for (const [index, value] of [...string].entries()) {
+    const codeIndex = value.charCodeAt(0) - 97;
+    if (recordArray[codeIndex] === 1) return index;
+  }
+  return -1;
 };
