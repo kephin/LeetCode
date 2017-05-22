@@ -20,10 +20,13 @@ describe('268 Missing Number', () => {
   });
 });
 
-const missingNumber = nums => {
+const missingNumber_1 = nums => {
   const sortedNums = nums.sort((prev, next) => prev - next);
   for (const [index, num] of sortedNums.entries()) {
     if (num !== index) return index;
   }
   return sortedNums.length;
 };
+
+// bit operator
+const missingNumber = nums => nums.reduce((acc, value, index) => acc ^ value ^ index, nums.length);
