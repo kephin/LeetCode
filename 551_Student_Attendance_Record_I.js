@@ -41,7 +41,7 @@ describe('551 Student Attendance Record I', () => {
   });
 });
 
-const checkRecord = records => {
+const checkRecord_1 = records => {
   let a = 0;
   let l = 0;
   for (const char of[...records]) {
@@ -54,3 +54,5 @@ const checkRecord = records => {
   }
   return true;
 };
+
+const checkRecord = records => !records.includes('LLL') && records.indexOf('A') === records.lastIndexOf('A');
