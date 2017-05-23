@@ -52,11 +52,25 @@ describe('35 Search Insert Position', () => {
 });
 
 // O(n) time
-const searchInsert = (nums, target) => {
+const searchInsert_1 = (nums, target) => {
   if (target < nums[0]) return 0;
   if (target > nums[nums.length - 1]) return nums.length;
   for (let index = 0; index < nums.length; index++) {
     if (nums[index] === target) return index;
     if (target > nums[index] && target < nums[index + 1]) return index + 1;
   }
+};
+
+// O(logn) time: binary search
+const searchInsert = (nums, target) => {
+  let low = 0;
+  let high = nums.length - 1;
+  while (low <= high) {
+    const mid = Math.floor((low + high) / 2);
+    if (nums[mid] < target) low = mid + 1;
+    else {
+      high = mid - 1;
+    }
+  }
+  return low;
 };
