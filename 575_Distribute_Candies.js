@@ -26,9 +26,7 @@ describe('575 Distribute Candies', () => {
 
 const distributeCandies = candies => {
   const unique = {};
-  for (const candy of candies) {
-    if (!unique[candy]) unique[candy] = true;
-  }
+  for (const candy of candies) unique[candy] = true;
   if (Object.keys(unique).length > candies.length / 2) return candies.length / 2;
   return Object.keys(unique).length;
 };
