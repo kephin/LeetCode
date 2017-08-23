@@ -32,6 +32,4 @@ const singleNumber_1 = (nums) => {
   return parseInt(Object.keys(list)[0]);
 };
 
-const singleNumber = (nums) => {
-  return nums.reduce((acc, cur) => acc ^ cur, 0);
-};
+const singleNumber = nums => nums.reduce((acc, cur) => acc ^ cur, 0);
