@@ -21,12 +21,10 @@ describe('500 Keyboard Row', () => {
 const findWords = (words) => {
   const result = [];
   const keyboardRows = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'];
-
   words.forEach(word => {
     const wordSet = new Set(word.toLowerCase().split(''));
-
     for (const keyboardRow of keyboardRows) {
-      if ([...wordSet].every(val => keyboardRow.includes(val))) return result.push(word);
+      if ([...wordSet].every(char => keyboardRow.includes(char))) return result.push(word);
     }
   });
   return result;
