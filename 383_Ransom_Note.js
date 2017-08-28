@@ -10,7 +10,7 @@ You may assume that both strings contain only lowercase letters.
 
 const expect = require('expect');
 
-describe('383 Ransom Note', () => {
+describe.only('383 Ransom Note', () => {
   it('returns false', () => {
     //arragne
     const ransomNote = 'money';
@@ -33,12 +33,12 @@ describe('383 Ransom Note', () => {
     //assert
     expect(actual).toBe(expected);
   });
-  it('returns true', () => {
+  it('returns false', () => {
     //arragne
-    const ransomNote = 'fffbfg';
-    const magazine = 'effjfggbffjdgbjjhhdegh';
+    const ransomNote = 'fffbfgzz';
+    const magazine = 'effjfggbffjdgbjjhhdeghz';
     const input = [ransomNote, magazine];
-    const expected = true;
+    const expected = false;
     //act
     const actual = canConstruct(...input);
     //assert
@@ -46,14 +46,29 @@ describe('383 Ransom Note', () => {
   });
 });
 
+// O(n^2)
+const canConstruct_1 = (ransomNote, magazine) => {
+  if (ransomNote.length > magazine.length) return false;
+  const magazineArr = [...magazine];
+  for (const char of [...ransomNote]) {
+    const index = magazineArr.indexOf(char);
+    if (index === -1) return false;
+    magazineArr.splice(index, 1);
+  }
+  return true;
+};
+
+// O(n)
 const canConstruct = (ransomNote, magazine) => {
   if (ransomNote.length > magazine.length) return false;
-
-  const magazineArray = [...magazine];
+  const magazineObj = {};
+  for (const char of [...magazine]) {
+    if (!magazineObj[char]) magazineObj[char] = 0;
+    magazineObj[char] += 1;
+  }
   for (const char of [...ransomNote]) {
-    const index = magazineArray.indexOf(char);
-    if (index === -1) return false;
-    magazineArray.splice(index, 1);
+    if (!magazineObj[char]) return false;
+    magazineObj[char] -= 1;
   }
   return true;
 };
