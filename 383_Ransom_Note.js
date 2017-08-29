@@ -10,7 +10,7 @@ You may assume that both strings contain only lowercase letters.
 
 const expect = require('expect');
 
-describe.only('383 Ransom Note', () => {
+describe('383 Ransom Note', () => {
   it('returns false', () => {
     //arragne
     const ransomNote = 'money';
