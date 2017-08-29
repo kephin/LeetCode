@@ -10,7 +10,7 @@ For the purpose of this problem, we define empty string as valid palindrome.
 
 const expect = require('expect');
 
-describe.only('125 Valid Palindrome', () => {
+describe('125 Valid Palindrome', () => {
   it('returns true', () => {
     //arrange
     const input = 'A man, a plan, a canal: Panama';
@@ -73,4 +73,18 @@ const isPalindrome = str => {
     if (arr[i] !== arr[len - 1 - i]) return false;
   }
   return true;
+};
+
+const isPalindrome_1 = str => {
+  if (str.length === 0) return true;
+  const lowerStr = str.toLowerCase();
+  const isAlphabetic = index => (index < 123 && index > 96);
+  const isNumeric = index => (index < 58 && index > 47);
+
+  const arr = [...lowerStr].filter(char => {
+    const charIndex = char.charCodeAt(0);
+    return isNumeric(charIndex) || isAlphabetic(charIndex);
+  });
+
+  return arr.join('') === arr.reverse().join('');
 };
