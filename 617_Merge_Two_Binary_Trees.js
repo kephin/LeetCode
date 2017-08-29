@@ -10,7 +10,7 @@ Note: The merging process must start from the root nodes of both trees.
 
 const expect = require('expect');
 
-describe.only('617 Merge Two Binary Trees', () => {
+describe('617 Merge Two Binary Trees', () => {
   // Definition for a binary tree node.
   function TreeNode(val) {
     this.val = val;
